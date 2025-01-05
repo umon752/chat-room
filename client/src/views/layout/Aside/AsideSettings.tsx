@@ -53,12 +53,6 @@ const AsideSettings: React.FC = () => {
                 <div className="font-(size-12) md:(font-size-14)  text-gray dark:text-light">{t('language')}</div>
                 <button type="button" className="font-(size-12) md:(font-size-14) text-dark-gray dark:text-light @hover:(text-main)"  onClick={() => changeLang(lang === 'en' ? t('zh') : t('en'))}>{lang === 'en' ? t('zh') : t('en')}</button>
               </div>
-              {/* <div className="u-flex-center mt-10 gap-10">
-                <div className="parent u-convex u-convex-btn u-flex-center rounded-full before:(rounded-full) after:(rounded-full) px-10 py-4 gap-6">
-                  <div className='i-ic:baseline-language u-transition-ease text-gray w-18 h-18 parent-hover:(text-main) dark:text-light md:(w-22 h-22)'></div>
-                <button type="button" className="text-gray dark:text-light parent-hover:(text-main)"  onClick={() => changeLang(lang === 'en' ? t('zh') : t('en'))}>{lang === 'en' ? t('zh') : t('en')}</button>
-                </div>
-              </div> */}
             </div>
           </div>
         </div>

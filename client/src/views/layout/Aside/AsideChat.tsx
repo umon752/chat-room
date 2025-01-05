@@ -194,19 +194,19 @@ const AsideChat: React.FC = () => {
               <img className="w-100% h-100% object-cover" src={message.avatar} alt="" referrerPolicy="no-referrer" />
             </div>
             <div className="w-100% flex flex-(col) gap-4">
-              <div className={`font-(size-10) text-gray dark:text-light ${message.isUser ? 'ms-auto' : ''}`}>{message.name}</div>
+              <div className={`font-(size-10) text-gray dark:text-light ${message.isUser && 'ms-auto'}`}>{message.name}</div>
               {
                 message.texts.map((text, i) => 
                   (i === 0) ?
-                  (<div className={`flex gap-3 flex-(items-end) md:(gap-4) ${message.isUser ? 'flex-row-reverse' : ''}`}  key={i}>
-                    <div className={`u-chat font-size-14 md:(font-size-16) ${message.isUser ? 'u-chat-end' : 'u-chat-start'}`}>
+                  (<div className={`flex gap-3 flex-(items-end) md:(gap-4) ${message.isUser && 'flex-row-reverse'}`}  key={i}>
+                    <div className={`u-chat font-size-14 md:(font-size-16) u-chat-start ${message.isUser && 'u-chat-end'}`}>
                     {text.map((txt, index) => 
                         <span key={index}>{txt}</span>
                       )}
                     </div>
                     <div className="font-(size-10) text-gray flex-shrink-0 dark:text-light">{message.times[i]}</div>
                   </div>) :
-                  (<div className={`flex gap-4 flex-(items-end) ${message.isUser ? 'flex-row-reverse' : ''}`} key={i}>
+                  (<div className={`flex gap-4 flex-(items-end) ${message.isUser && 'flex-row-reverse'}`} key={i}>
                     <div className="u-chat">
                       {text.map((txt, index) => 
                         <span key={index}>{txt}</span>

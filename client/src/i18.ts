@@ -14,7 +14,7 @@ i18n
       en: { translation: en },
       'zh': { translation: zh },
     },
-    debug: true,
+    // debug: true,
     interpolation: {
       escapeValue: false,
     },

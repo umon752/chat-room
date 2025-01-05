@@ -17,9 +17,9 @@ let messages = [];
 
 const io = socketIo(server, {
   cors: {
-    origin: '*', // 允许所有来源
-    methods: ['GET', 'POST'], // 允许的请求方法
-    credentials: true // 如果需要支持凭证
+    origin: '*',
+    methods: ['GET', 'POST'],
+    credentials: true
   }
 })
 
@@ -28,23 +28,18 @@ const io = socketIo(server, {
   const io = socket(server)
 */
 
-// 使用 CORS 中间件
+// 使用 CORS
 app.use(cors({
-  origin: '*', // 允许的来源
-  methods: ['GET', 'POST'], // 允许的请求方法
-  credentials: true // 如果需要支持凭证
+  origin: '*',
+  methods: ['GET', 'POST'],
+  credentials: true
 }))
 
 //監聽 Server 連線後的所有事件，並捕捉事件 socket 執行
 io.on('connection', (socket) => {
   console.log('success server connect!')
-
   socket.on('addMember', (userObj) => {
-    // console.log('addMember userObj:', userObj)
-
     const hasIndex = members.findIndex(member => member.id === userObj.id)
-    // console.log('hasIndex', hasIndex)
-    
     if(hasIndex !== -1) {
       members[hasIndex] = userObj
     } else {
@@ -53,16 +48,10 @@ io.on('connection', (socket) => {
     io.sockets.emit('addMember', userObj.name)
     io.sockets.emit('updateMembers', members)
     io.sockets.emit('updateMessages', messages)
-    // console.log('addMember members:', members)
   });
 
   socket.on('removeMember', (userObj) => {
-    // console.log('removeMember userObj:', userObj)
-    
     members = members.filter(member => member.id !== userObj.id)
-
-    // console.log('removeMember members', members)
-    
     io.sockets.emit('updateMembers', members)
     io.sockets.emit('removeMember', userObj)
   });

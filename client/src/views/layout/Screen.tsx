@@ -134,7 +134,6 @@ const TextMesh: React.FC<TextMeshProps> = memo(({ id, meshes, texts, pos, screen
 
   if(position.y === 0) {
     position.y = Math.random() * (maxMeshPositionY - minMeshPositionY) + minMeshPositionY
-    // console.log('position.y:', position.y)
   }
 
   useFrame(() => {
@@ -154,7 +153,7 @@ const TextMesh: React.FC<TextMeshProps> = memo(({ id, meshes, texts, pos, screen
       const xPosition = position.x - clockValue // 右往左移
       meshRef.current.position.x = xPosition
       
-      // 移出画面后移除 mesh 实体
+      // 移出 screen 後移除 mesh
       if (xPosition < position.x - frustumWidth - meshW) {
         const newMeshes = meshes.filter((mesh: Mesh) => mesh.id !== id.toString())
         dispatch(
@@ -164,11 +163,8 @@ const TextMesh: React.FC<TextMeshProps> = memo(({ id, meshes, texts, pos, screen
         meshRef.current.visible = false // 結束
 
         animateMeshes = animateMeshes.filter(mesh => mesh.id !== id.toString())
-        // console.log('結束', animateMeshes)
       } else {
         meshRef.current.visible = true // 開始
-        // console.log('開始')
-
         const animateMesh = {
           id: id.toString(),
           texts: texts,
@@ -192,7 +188,7 @@ const TextMesh: React.FC<TextMeshProps> = memo(({ id, meshes, texts, pos, screen
     </mesh>
   )
 }, (prevProps, nextProps) => {
-  // 自定义比较函数，只有在必要的属性发生变化时才重新渲染
+  // 自訂比較函數，只有在需要的屬性變更時才重新渲染
   return (
     prevProps.id === nextProps.id &&
     prevProps.texts === nextProps.texts &&
@@ -204,8 +200,6 @@ const TextMesh: React.FC<TextMeshProps> = memo(({ id, meshes, texts, pos, screen
 const ScreenCanvas : React.FC<{ screenW: number, screenH: number }> = ({ screenW, screenH }) => {
   const meshes: Mesh[] = useSelector((state: any) => state.meshes)
   const [renderMeshes, setRenderMeshes] = useState<Mesh[]>([])
-  
-  // 使用 useCallback 优化渲染逻辑
   const updateRenderMeshes = useCallback(() => {
     if (meshes.length === 0) {
       animateMeshes = []

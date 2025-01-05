@@ -14,9 +14,10 @@ export const toastSlice = createSlice({
         active: true,
       }
     },
-    hideToast(_, action) {
+    hideToast(state) {
       return {
-        ...action.payload,
+        ...state,
+        active: false,
       }
     },
   } 
