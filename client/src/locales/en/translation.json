@@ -1,0 +1,18 @@
+{
+  "signin": "SIGN IN",
+  "namePlaceholder": "Please enter name",
+  "confirm": "Confirm",
+  "language": "Switch Language:",
+  "en": "en",
+  "zh": "zh",
+  "darkMode": "Dark Mode",
+  "lightMode": "Light Mode",
+  "member": "members",
+  "msgPlaceholder": "Please enter message",
+  "am": "AM",
+  "pm": "PM",
+  "back": "Back",
+  "joinChatroom": "join chatroom！",
+  "leaveChatroom": "leave chatroom！",
+  "connectInterrupt": "Connect Interrupt！"
+}

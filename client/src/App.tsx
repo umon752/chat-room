@@ -1,4 +1,4 @@
-import { SocketProvider } from './SocketContext'
+import { SocketProvider } from './context/SocketContext'
 import SignIn from './views/layout/SignIn'
 import Toast from './views/components/Toast'
 

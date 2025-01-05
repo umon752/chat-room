@@ -1,8 +1,8 @@
 import { useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { updateUser } from '../../assets/slice/userSlice'
-import { updateUpload } from '../../assets/slice/uploadSlice'
-import { useSocket } from '../../SocketContext'
+import { updateUser } from '../../redux/slice/userSlice'
+import { updateUpload } from '../../redux/slice/uploadSlice'
+import { useSocket } from '../../context/SocketContext'
 import Spinner from './Spinner'
 
 type AvatarProps = {
@@ -80,8 +80,8 @@ const Avatar: React.FC<AvatarProps> = ({ size }) => {
         <div className="u-concave u-flex-center rounded-full before:rounded-full after:rounded-full">
           <div className="parent w-95% h-95% rounded-full bg-white relative overflow-hidden dark:(bg-gray)">
             <img className="w-100% h-100% object-cover" src={user.avatar} alt="" ref={avatarRef} referrerPolicy="no-referrer" />
-            <div className="w-100% h-100% u-absolute-center opacity-0 rounded-full 
-            parent-hover:(opacity-100)">
+            <div className="w-100% h-100% u-absolute-center opacity-0 rounded-full u-transition-ease
+            parent-hover:(opacity-100 u-transition-ease)">
               <div className="w-100% h-100% u-absolute-center bg-dark opacity-30"></div>
               <div className="i-ic:baseline-edit w-32 h-32 text-light u-absolute-center"></div>
             </div>

@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { useSelector } from 'react-redux';
-import '../../../assets/slice/memberSlice'
-import { AsideContext } from './AsideContext'
+import '../../../redux/slice/memberSlice'
+import { AsideContext } from '../../../context/AsideContext'
 import BackBtn from '../../components/BackBtn'
 
 type Member = {

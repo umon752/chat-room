@@ -1,10 +1,11 @@
-import { useRef, useEffect } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { updateLoading } from '../../assets/slice/loadingSlice'
-import { updateUser } from '../../assets/slice/userSlice'
-import { showToast } from '../../assets/slice/toastSlice'
-import { updateSignIn } from '../../assets/slice/signInSlice'
-import { useSocket } from '../../SocketContext'
+import { useTranslation } from 'react-i18next'
+import { updateLoading } from '../../redux/slice/loadingSlice'
+import { updateUser } from '../../redux/slice/userSlice'
+import { showToast } from '../../redux/slice/toastSlice'
+import { updateSignIn } from '../../redux/slice/signInSlice'
+import { useSocket } from '../../context/SocketContext'
 import Btn from '../components/Btn'
 import Screen from './Screen'
 import Aside from './Aside/Aside'
@@ -12,6 +13,7 @@ import Avatar from '../components/Avatar'
 import { v4 as uuidv4 } from 'uuid'
 
 const SignIn: React.FC = () => { 
+  const { t, i18n } = useTranslation()
   const inputRef = useRef<HTMLInputElement | null>(null)
   const user = useSelector((state: any) => state.user)
   const isUpload = useSelector((state: any) => state.isUpload)
@@ -21,6 +23,7 @@ const SignIn: React.FC = () => {
   const userId = uuidv4()
   const isSignInRef = useRef(isSignIn)
   const userRef = useRef(user)
+  const [lang, setLang] = useState<string>(i18n.language)
   
   useEffect(() => {
     userRef.current = user
@@ -60,7 +63,7 @@ const SignIn: React.FC = () => {
     if (inputRef.current && !inputRef.current.value) {
       dispatch(
         showToast({
-          text: 'Please enter name!',
+          text: `${t('namePlaceholder')}!`,
           state: 'warning',
         })
       )
@@ -92,6 +95,11 @@ const SignIn: React.FC = () => {
     }
   };
 
+  const changeLang = (lng: string) => {
+    i18n.changeLanguage(lng);
+    setLang(lng);
+  }
+
   return (
     <>
       {
@@ -104,12 +112,16 @@ const SignIn: React.FC = () => {
         <div className={`w-100vw h-100vh bg-light dark:bg-dark overflow-hidden fixed top-0 left-0 right-0 bottom-0 u-transition-ease z-9998`}>
           <div className="w-100% h-100% flex-col u-flex-center">
             <div className="w-100% max-w-350 flex flex-(col items-center justify-center) gap-8 md:(gap-18)">
-              <div className="text-(center dark) font-(size-28 black)">SIGN IN</div>
+              <div className="text-(center dark) font-(size-28 black)">{t('signin')}</div>
               <Avatar size="w-100 h-100 md:(w-145 h-145)" />
               <div className="u-concave rounded-30 py-8 px-12 before:(rounded-30) after:(rounded-30) md:(p-16)">
-                <input placeholder="Please enter name" className={`u-scrollbar-hidden w-100% line-height-150% text-dark font-size-14 middle md:(font-size-16) dark:text-white`} ref={inputRef} onKeyDown={keyDownEnter}></input>
+                <input placeholder={t('namePlaceholder')} className={`u-scrollbar-hidden w-100% line-height-150% text-dark font-size-14 middle md:(font-size-16) dark:text-white`} ref={inputRef} onKeyDown={keyDownEnter}></input>
               </div>
-              <Btn text={'Comfirm'} clickEvent={clickSignIn} disabled={isUpload} />
+              <Btn text={t('confirm')} clickEvent={clickSignIn} disabled={isUpload} />
+              <div className="u-flex-center mt-10 gap-8">
+                <div className="font-(size-12) md:(font-size-14)  text-gray dark:text-light">{t('language')}</div>
+                <button type="button" className="font-(size-12) md:(font-size-14) text-dark-gray dark:text-light @hover:(text-main)"  onClick={() => changeLang(lang === 'en' ? t('zh') : t('en'))}>{lang === 'en' ? t('zh') : t('en')}</button>
+              </div>
             </div>
           </div>
         </div>

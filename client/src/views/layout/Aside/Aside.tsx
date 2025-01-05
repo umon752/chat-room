@@ -1,5 +1,5 @@
 // import { useState } from 'react'
-import { AsideProvider } from './AsideContext'
+import { AsideProvider } from '../../../context/AsideContext'
 import AsideChat from './AsideChat'
 import AsideMember from './AsideMember'
 import AsideSettings from './AsideSettings'

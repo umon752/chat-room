@@ -1,0 +1,18 @@
+{
+  "signin": "登入",
+  "namePlaceholder": "請輸入名稱",
+  "comfirm": "確認",
+  "language": "切換語言:",
+  "en": "英文",
+  "zh": "中文",
+  "darkMode": "暗色模式",
+  "lightMode": "淺色模式",
+  "member": "位成員",
+  "msgPlaceholder": "請輸入訊息",
+  "am": "早上",
+  "pm": "下午",
+  "back": "返回",
+  "joinChatroom": "加入聊天室！",
+  "leaveChatroom": "離開聊天室！",
+  "connectInterrupt": "連線中斷！"
+}

@@ -1,15 +1,17 @@
 import React, { createContext, useContext, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 import webSocket from 'socket.io-client'
-import { updateMembers, clearMember } from './assets/slice/memberSlice'
-import { showToast } from './assets/slice/toastSlice'
-import { updateMessages, clearMessages } from './assets/slice/messageSlice'
-import { addMesh, clearMeshes } from './assets/slice/meshSlice'
-import { updateSignIn } from './assets/slice/signInSlice'
+import { updateMembers, clearMember } from '../redux/slice/memberSlice'
+import { showToast } from '../redux/slice/toastSlice'
+import { updateMessages, clearMessages } from '../redux/slice/messageSlice'
+import { addMesh, clearMeshes } from '../redux/slice/meshSlice'
+import { updateSignIn } from '../redux/slice/signInSlice'
 
 const SocketContext = createContext<any>(null)
 
 export const SocketProvider: React.FC<{ children: React.ReactNode; }> = ({ children }) => {
+  const { t } = useTranslation()
   const [socket, setSocket] = useState<any>(null)
   const dispatch = useDispatch()
   const user = useSelector((state: any) => state.user)
@@ -63,7 +65,7 @@ export const SocketProvider: React.FC<{ children: React.ReactNode; }> = ({ child
       if(isSignIn) {
         dispatch(
           showToast({
-            text: `${userName} 加入 chatroom！`,
+            text: `${userName} ${t('joinChatroom')}`,
             state: '',
           })
         )
@@ -74,7 +76,7 @@ export const SocketProvider: React.FC<{ children: React.ReactNode; }> = ({ child
       if(isSignIn && userObj.id !== user.id) {
         dispatch(
           showToast({
-            text: `${userObj.name} 離開 chatroom！`,
+            text: `${userObj.name} ${t('leaveChatroom')}`,
             state: '',
           })
         )
@@ -95,7 +97,7 @@ export const SocketProvider: React.FC<{ children: React.ReactNode; }> = ({ child
         updateSignIn(false)
       )
       showToast({
-        text: `連線中斷！`,
+        text: `${t('connectInterrupt')}`,
         state: '',
       })
     })

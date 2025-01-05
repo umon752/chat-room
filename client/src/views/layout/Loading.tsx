@@ -1,6 +1,6 @@
 import { useLayoutEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { updateLoading } from '../../assets/slice/loadingSlice'
+import { updateLoading } from '../../redux/slice/loadingSlice'
 
 const Loading: React.FC = () => {
   const dispatch = useDispatch()
@@ -20,7 +20,7 @@ const Loading: React.FC = () => {
       functionality of this site, please enable JavaScript in your browser.)<br />
       </noscript>
 
-      <div className={`w-100vw h-100vh bg-light dark:bg-dark overflow-hidden fixed top-0 left-0 right-0 bottom-0 u-transition-ease z-9999 ${isLoading ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+      <div className={`w-100vw h-100vh bg-light dark:bg-dark overflow-hidden fixed top-0 left-0 right-0 bottom-0 z-9999 ${isLoading ? 'opacity-100' : 'opacity-0 pointer-events-none u-transition-ease'}`}>
         
       </div>
     </>

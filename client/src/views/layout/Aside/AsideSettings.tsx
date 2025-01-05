@@ -1,16 +1,19 @@
 import { useState, useContext } from 'react'
 import { useSelector } from 'react-redux';
-import { AsideContext } from './AsideContext'
+import { useTranslation } from 'react-i18next'
+import { AsideContext } from '../../../context/AsideContext'
 import BackBtn from '../../components/BackBtn'
 import Avatar from '../../components/Avatar'
 
 const AsideSettings: React.FC = () => {
+  const { t, i18n } = useTranslation()
   const context = useContext(AsideContext)
   if (!context) {
     throw new Error('AsideSettings must be used within an AsideProvider')
   }
   const { openSettings, setOpenSettings } = context
   const [darkMode, setDarkMode] = useState<boolean>(false)
+  const [lang, setLang] = useState<string>(i18n.language)
   const user = useSelector((state: { user: any }) => state.user)
 
   const switchMode = () => {
@@ -20,6 +23,11 @@ const AsideSettings: React.FC = () => {
 
   const closeSettings = () => {
     setOpenSettings(false)
+  }
+
+  const changeLang = (lng: string) => {
+    i18n.changeLanguage(lng);
+    setLang(lng);
   }
   
   return (
@@ -34,12 +42,23 @@ const AsideSettings: React.FC = () => {
               <div className="flex flex-(col items-center) gap-8">
                 <button type="button" className="w-48 h-20 overflow-hidden relative md:(w-74 h-36)" onClick={switchMode}>
                   <div className="u-concave rounded-full bg-white before:rounded-full after:rounded-full dark:bg-dark"></div>
-                  <div className="w-13 h-13 absolute top-50% left-0 translate-y--50% mx-3 dark:translate-x-28 md:(w-20 h-20 mx-8 dark:translate-x-34)">
-                    <div className="u-convex rounded-full bg-light before:rounded-full after:rounded-full dark:bg-white"></div>
+                  <div className="w-13 h-13 absolute top-50% left-0 translate-y--50% mx-3 dark:translate-x-28 md:(w-20 h-20 mx-8 dark:translate-x-34) u-transition-ease">
+                    <div className="u-convex rounded-full bg-light before:rounded-full after:rounded-full dark:bg-white u-transition-ease"></div>
                   </div>
                 </button>
-                <div className="font-(size-12) text-gray md:(font-size-14) dark:text-light">{darkMode ? 'Dark Mode' : 'Light Mode'}</div>
+                <div className="font-(size-12) text-gray md:(font-size-14) dark:text-light">{darkMode ? t('darkMode') : t('lightMode')}</div>
               </div>
+
+              <div className="u-flex-center gap-8">
+                <div className="font-(size-12) md:(font-size-14)  text-gray dark:text-light">{t('language')}</div>
+                <button type="button" className="font-(size-12) md:(font-size-14) text-dark-gray dark:text-light @hover:(text-main)"  onClick={() => changeLang(lang === 'en' ? t('zh') : t('en'))}>{lang === 'en' ? t('zh') : t('en')}</button>
+              </div>
+              {/* <div className="u-flex-center mt-10 gap-10">
+                <div className="parent u-convex u-convex-btn u-flex-center rounded-full before:(rounded-full) after:(rounded-full) px-10 py-4 gap-6">
+                  <div className='i-ic:baseline-language u-transition-ease text-gray w-18 h-18 parent-hover:(text-main) dark:text-light md:(w-22 h-22)'></div>
+                <button type="button" className="text-gray dark:text-light parent-hover:(text-main)"  onClick={() => changeLang(lang === 'en' ? t('zh') : t('en'))}>{lang === 'en' ? t('zh') : t('en')}</button>
+                </div>
+              </div> */}
             </div>
           </div>
         </div>

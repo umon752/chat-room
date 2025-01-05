@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from 'react-redux'
-import { hideToast } from '../../assets/slice/toastSlice'
+import { hideToast } from '../../redux/slice/toastSlice'
 
 type ToastProps = {
   state: string

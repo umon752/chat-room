@@ -1,6 +1,6 @@
 import { useEffect, useLayoutEffect, useState, useRef, useMemo, memo, useCallback } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { removeMesh } from '../../assets/slice/meshSlice'
+import { removeMesh } from '../../redux/slice/meshSlice'
 import { Canvas, extend, useFrame, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
 import { PerspectiveCamera } from 'three'
