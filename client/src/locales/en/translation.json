@@ -1,18 +1,23 @@
 {
   "signin": "SIGN IN",
-  "namePlaceholder": "Please enter name",
+  "placeholder": {
+    "name": "Please enter name",
+    "msg": "Please enter message"
+  },
   "confirm": "Confirm",
   "language": "Switch Language:",
   "en": "en",
   "zh": "zh",
   "darkMode": "Dark Mode",
   "lightMode": "Light Mode",
-  "member": "members",
-  "msgPlaceholder": "Please enter message",
+  "member_one": "{{count}} member",
+  "member_other": "{{count}} members",
   "am": "AM",
   "pm": "PM",
   "back": "Back",
-  "joinChatroom": "join chatroom！",
-  "leaveChatroom": "leave chatroom！",
-  "connectInterrupt": "Connect Interrupt！"
+  "socket": {
+    "join": "{{name}} join chatroom！",
+    "leave": "{{name}} leave chatroom！",
+    "interrupt": "Connect Interrupt！"
+  }
 }

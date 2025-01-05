@@ -63,7 +63,7 @@ const SignIn: React.FC = () => {
     if (inputRef.current && !inputRef.current.value) {
       dispatch(
         showToast({
-          text: `${t('namePlaceholder')}!`,
+          text: `${t('placeholder.name')}!`,
           state: 'warning',
         })
       )
@@ -115,7 +115,7 @@ const SignIn: React.FC = () => {
               <div className="text-(center dark) font-(size-28 black)">{t('signin')}</div>
               <Avatar size="w-100 h-100 md:(w-145 h-145)" />
               <div className="u-concave rounded-30 py-8 px-12 before:(rounded-30) after:(rounded-30) md:(p-16)">
-                <input placeholder={t('namePlaceholder')} className={`u-scrollbar-hidden w-100% line-height-150% text-dark font-size-14 middle md:(font-size-16) dark:text-white`} ref={inputRef} onKeyDown={keyDownEnter}></input>
+                <input placeholder={t('placeholder.name')} className={`u-scrollbar-hidden w-100% line-height-150% text-dark font-size-14 middle md:(font-size-16) dark:text-white`} ref={inputRef} onKeyDown={keyDownEnter}></input>
               </div>
               <Btn text={t('confirm')} clickEvent={clickSignIn} disabled={isUpload} />
               <div className="u-flex-center mt-10 gap-8">

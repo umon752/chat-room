@@ -8,11 +8,12 @@ import zh from './locales/zh/translation.json';
 i18n
   .use(initReactI18next)
   .init({
+    lng: 'en',
     fallbackLng: 'en',
     supportedLngs: ['en', 'zh'],
     resources: {
       en: { translation: en },
-      'zh': { translation: zh },
+      zh: { translation: zh },
     },
     // debug: true,
     interpolation: {

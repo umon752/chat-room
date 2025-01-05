@@ -65,7 +65,7 @@ export const SocketProvider: React.FC<{ children: React.ReactNode; }> = ({ child
       if(isSignIn) {
         dispatch(
           showToast({
-            text: `${userName} ${t('joinChatroom')}`,
+            text: t('socket.join', { name: userName }),
             state: '',
           })
         )
@@ -76,7 +76,7 @@ export const SocketProvider: React.FC<{ children: React.ReactNode; }> = ({ child
       if(isSignIn && userObj.id !== user.id) {
         dispatch(
           showToast({
-            text: `${userObj.name} ${t('leaveChatroom')}`,
+            text: t('socket.leave', { name: userObj.name }),
             state: '',
           })
         )
@@ -97,7 +97,7 @@ export const SocketProvider: React.FC<{ children: React.ReactNode; }> = ({ child
         updateSignIn(false)
       )
       showToast({
-        text: `${t('connectInterrupt')}`,
+        text: `${t('socket.interrupt')}`,
         state: '',
       })
     })

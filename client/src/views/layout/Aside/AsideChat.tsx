@@ -171,7 +171,7 @@ const AsideChat: React.FC = () => {
             <img className="w-auto h-16 object-contain md:(h-24)" src={logo} alt="CHATROOM LOGO" />
             <span className="font-(size-12 black) text-main block md:(font-size-14)">CHATROOM</span>
           </h1>
-          <div className="font-(size-11) text-gray dark:text-light md:(font-size-14)">{members.length} {t('member')}</div>
+          <div className="font-(size-11) text-gray dark:text-light md:(font-size-14)">{t('member', { count: members.length})}</div>
         </div>
         <ul className="flex flex-(items-center) gap-8 md:(gap-10)">
           <li className="w-30 h-30 md:(w-42 h-42)">
@@ -223,7 +223,7 @@ const AsideChat: React.FC = () => {
       </div>
       <div className="flex flex-(items-center justify-between) py-10 px-12 md:(py-20 px-18)">
         <div className="u-concave rounded-s-30 py-8 px-12 before:(rounded-s-30) after:(rounded-s-30) md:(p-16)">
-          <textarea placeholder={t('msgPlaceholder')} className={`u-scrollbar-hidden w-100% h-${textareaH} line-height-150% text-dark font-size-14 middle dark:text-white md:(font-size-16)`} onChange={changeMessage} onKeyDown={keyDownMessage} onKeyUp={kenUpMessage} ref={textareaRef}></textarea>
+          <textarea placeholder={t('placeholder.msg')} className={`u-scrollbar-hidden w-100% h-${textareaH} line-height-150% text-dark font-size-14 middle dark:text-white md:(font-size-16)`} onChange={changeMessage} onKeyDown={keyDownMessage} onKeyUp={kenUpMessage} ref={textareaRef}></textarea>
         </div>
         <div className="w-50 h-100% flex-shrink-0 md:(w-64)">
           <button type="button" className="parent u-convex u-convex-btn u-flex-center rounded-e-30 before:(rounded-e-30) after:(rounded-e-30)" onClick={sendMessage}>
