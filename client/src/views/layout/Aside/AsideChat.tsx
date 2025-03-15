@@ -1,7 +1,7 @@
-import { useState, useEffect, useLayoutEffect, useRef, useContext } from 'react'
+import { useState, useEffect, useLayoutEffect, useRef } from 'react'
 import { useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
-import { AsideContext } from '../../../context/AsideContext'
+import { useAside } from '../../../context/AsideContext'
 import { useSocket } from '../../../context/SocketContext'
 import logo from '/assets/images/logo.svg'
 
@@ -25,14 +25,14 @@ let textareaBaseH = 0
 
 const AsideChat: React.FC = () => {
   const { t } = useTranslation()
-  const context = useContext(AsideContext)
-  if (!context) {
+  const asideContext = useAside()
+  if (!asideContext) {
     throw new Error('AsideChat must be used within an AsideProvider')
   }
   const messages = useSelector((state: any) => state.messages)
   const members = useSelector((state: any) => state.members)
 
-  const { setOpenMember, setOpenSettings } = context
+  const { setOpenMember, setOpenSettings } = asideContext
   // const [messages, setMessages] = useState<Array<Message>>([
   //   {
   //     id: 0,
@@ -78,7 +78,14 @@ const AsideChat: React.FC = () => {
         behavior: "smooth",
       })
     }
+    scrollToBottom()
   }, [messages])
+
+  const scrollToBottom = () => {
+    if (contentRef.current) {
+      contentRef.current.scrollTop = contentRef.current.scrollHeight
+    }
+  }
 
   const changeMessage = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const lines = e.target.value.split('\n').length
@@ -143,14 +150,16 @@ const AsideChat: React.FC = () => {
         }
         
         if (socket && typeof socket.emit === 'function') {
-            socket.emit('updateMessages', newMessage);
-            socket.emit('addMesh', newMesh);
+            socket.emit('updateMessages', newMessage)
+            socket.emit('addMesh', newMesh)
         } else {
-            console.error('Socket is not initialized or emit is not a function');
+            console.error('Socket is not initialized or emit is not a function')
         }
         
         (textareaRef.current as HTMLInputElement).value = ''
-        setTextareaH(textareaBaseH);
+        setTextareaH(textareaBaseH)
+        // 捲軸置底
+        setTimeout(scrollToBottom, 10)
       }
     }
   }

@@ -1,4 +1,4 @@
-import React, { createContext, useState, ReactNode } from 'react'
+import React, { createContext, useContext, useState, ReactNode } from 'react'
 
 type AsideContextType = {
   openMember: boolean
@@ -7,7 +7,7 @@ type AsideContextType = {
   setOpenSettings: React.Dispatch<React.SetStateAction<boolean>>
 };
 
-export const AsideContext = createContext<AsideContextType | undefined>(undefined);
+const AsideContext = createContext<AsideContextType | undefined>(undefined);
 
 export const AsideProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [openMember, setOpenMember] = useState<boolean>(false)
@@ -19,3 +19,7 @@ export const AsideProvider: React.FC<{ children: ReactNode }> = ({ children }) =
     </AsideContext.Provider>
   );
 };
+
+export const useAside = () => {
+  return useContext(AsideContext)
+}

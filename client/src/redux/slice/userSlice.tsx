@@ -1,13 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit'
 import avatar from '/assets/images/avatar.png'
 
+type User = {
+  id: string | null
+  name: string
+  avatar: string
+}
+
+const initialState: User = {
+  id: null,
+  name: '',
+  avatar: avatar,
+}
+
 export const userSlice = createSlice({ 
   name: 'user', 
-  initialState: {
-    id: null,
-    name: '',
-    avatar: avatar,
-  }, 
+  initialState, 
   reducers: { 
     updateUser(state, action) {
       return {

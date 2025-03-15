@@ -1,17 +1,17 @@
 import { useState, useContext } from 'react'
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next'
-import { AsideContext } from '../../../context/AsideContext'
+import { useAside } from '../../../context/AsideContext'
 import BackBtn from '../../components/BackBtn'
 import Avatar from '../../components/Avatar'
 
 const AsideSettings: React.FC = () => {
   const { t, i18n } = useTranslation()
-  const context = useContext(AsideContext)
-  if (!context) {
+  const asideContext = useAside()
+  if (!asideContext) {
     throw new Error('AsideSettings must be used within an AsideProvider')
   }
-  const { openSettings, setOpenSettings } = context
+  const { openSettings, setOpenSettings } = asideContext
   const [darkMode, setDarkMode] = useState<boolean>(false)
   const [lang, setLang] = useState<string>(i18n.language)
   const user = useSelector((state: { user: any }) => state.user)

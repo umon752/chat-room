@@ -1,7 +1,6 @@
-import { useContext } from 'react'
 import { useSelector } from 'react-redux';
 import '../../../redux/slice/memberSlice'
-import { AsideContext } from '../../../context/AsideContext'
+import { useAside } from '../../../context/AsideContext'
 import BackBtn from '../../components/BackBtn'
 
 type Member = {
@@ -11,11 +10,11 @@ type Member = {
 }
 
 const AsideMember: React.FC = () => {
-  const context = useContext(AsideContext)
-  if (!context) {
+  const asideContext = useAside()
+  if (!asideContext) {
     throw new Error('AsideMember must be used within an AsideProvider')
   }
-  const { openMember, setOpenMember } = context
+  const { openMember, setOpenMember } = asideContext
   let members = useSelector((state: { members: any }) => state.members)
 
   const closeMember = () => {
