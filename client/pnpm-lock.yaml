@@ -9,28 +9,25 @@ overrides:
 
 dependencies:
   '@react-three/drei':
-    specifier: ^9.114.3
+    specifier: ^9.122.0
     version: 9.122.0(@react-three/fiber@8.18.0)(@types/react@18.3.18)(@types/three@0.169.0)(react-dom@18.3.1)(react@18.3.1)(three@0.169.0)
   '@react-three/fiber':
-    specifier: ^8.17.10
+    specifier: ^8.18.0
     version: 8.18.0(@types/react@18.3.18)(react-dom@18.3.1)(react@18.3.1)(three@0.169.0)
   '@reduxjs/toolkit':
-    specifier: ^2.2.8
+    specifier: ^2.6.1
     version: 2.6.1(react-redux@9.2.0)(react@18.3.1)
-  '@unocss/preset-web-fonts':
-    specifier: 66.1.0-beta.5
-    version: 66.1.0-beta.5
   '@unocss/reset':
-    specifier: ^0.63.2
+    specifier: ^0.63.6
     version: 0.63.6
   express:
-    specifier: ^4.21.1
+    specifier: ^4.21.2
     version: 4.21.2
   i18next:
-    specifier: ^24.2.0
+    specifier: ^24.2.3
     version: 24.2.3(typescript@5.8.2)
   i18next-browser-languagedetector:
-    specifier: ^8.0.2
+    specifier: ^8.0.4
     version: 8.0.4
   i18next-intervalplural-postprocessor:
     specifier: ^3.0.0
@@ -42,10 +39,10 @@ dependencies:
     specifier: ^18.3.1
     version: 18.3.1(react@18.3.1)
   react-i18next:
-    specifier: ^15.4.0
+    specifier: ^15.4.1
     version: 15.4.1(i18next@24.2.3)(react-dom@18.3.1)(react@18.3.1)
   react-redux:
-    specifier: ^9.1.2
+    specifier: ^9.2.0
     version: 9.2.0(@types/react@18.3.18)(react@18.3.1)(redux@5.0.1)
   socket.io:
     specifier: ^4.8.1
@@ -57,42 +54,42 @@ dependencies:
     specifier: ^0.169.0
     version: 0.169.0
   uuid:
-    specifier: ^11.0.3
+    specifier: ^11.1.0
     version: 11.1.0
 
 devDependencies:
   '@eslint/js':
-    specifier: ^9.9.0
+    specifier: ^9.22.0
     version: 9.22.0
   '@iconify-json/carbon':
-    specifier: ^1.2.1
+    specifier: ^1.2.8
     version: 1.2.8
   '@iconify-json/fluent':
-    specifier: ^1.2.2
+    specifier: ^1.2.15
     version: 1.2.15
   '@iconify-json/ic':
-    specifier: ^1.2.0
+    specifier: ^1.2.2
     version: 1.2.2
   '@iconify-json/lsicon':
-    specifier: ^1.2.0
+    specifier: ^1.2.3
     version: 1.2.3
   '@iconify-json/mdi':
-    specifier: ^1.2.0
+    specifier: ^1.2.3
     version: 1.2.3
   '@iconify-json/ph':
-    specifier: ^1.2.0
+    specifier: ^1.2.2
     version: 1.2.2
   '@iconify-json/quill':
-    specifier: ^1.2.0
+    specifier: ^1.2.2
     version: 1.2.2
   '@iconify-json/svg-spinners':
-    specifier: ^1.2.1
+    specifier: ^1.2.2
     version: 1.2.2
   '@types/react':
-    specifier: ^18.3.3
+    specifier: ^18.3.18
     version: 18.3.18
   '@types/react-dom':
-    specifier: ^18.3.0
+    specifier: ^18.3.5
     version: 18.3.5(@types/react@18.3.18)
   '@types/react-i18next':
     specifier: ^8.1.0
@@ -101,43 +98,43 @@ devDependencies:
     specifier: ^0.169.0
     version: 0.169.0
   '@unocss/preset-icons':
-    specifier: ^0.63.2
+    specifier: ^0.63.6
     version: 0.63.6
   '@unocss/transformer-directives':
-    specifier: ^0.63.2
+    specifier: ^0.63.6
     version: 0.63.6
   '@unocss/transformer-variant-group':
-    specifier: ^0.63.2
+    specifier: ^0.63.6
     version: 0.63.6
   '@vitejs/plugin-react':
-    specifier: ^4.3.1
+    specifier: ^4.3.4
     version: 4.3.4(vite@5.4.14)
   eslint:
-    specifier: ^9.9.0
+    specifier: ^9.22.0
     version: 9.22.0
   eslint-plugin-react-hooks:
-    specifier: ^5.1.0-rc.0
+    specifier: ^5.2.0
     version: 5.2.0(eslint@9.22.0)
   eslint-plugin-react-refresh:
-    specifier: ^0.4.9
+    specifier: ^0.4.19
     version: 0.4.19(eslint@9.22.0)
   globals:
-    specifier: ^15.9.0
+    specifier: ^15.15.0
     version: 15.15.0
   sass:
-    specifier: ^1.79.4
+    specifier: ^1.85.1
     version: 1.85.1
   typescript:
-    specifier: ^5.5.3
+    specifier: ^5.8.2
     version: 5.8.2
   typescript-eslint:
-    specifier: ^8.0.1
+    specifier: ^8.26.1
     version: 8.26.1(eslint@9.22.0)(typescript@5.8.2)
   unocss:
-    specifier: ^0.63.2
+    specifier: ^0.63.6
     version: 0.63.6(postcss@8.5.3)(typescript@5.8.2)(vite@5.4.14)
   vite:
-    specifier: ^5.4.1
+    specifier: ^5.4.14
     version: 5.4.14(sass@1.85.1)
 
 packages:
@@ -1562,10 +1559,6 @@ packages:
     resolution: {integrity: sha512-Q4QPgJ271Up89+vIqqOKgtdCKkFpHqvHN8W1LUlKPqtYnOvVYaOIVNAZowaIdEhPuc83yLc6Tg2+7riK18QKEw==}
     dev: true
 
-  /@unocss/core@66.1.0-beta.5:
-    resolution: {integrity: sha512-1kZzSrB87KKd+xP+vMN7IP03j2UPEykna447aw3UaK5RYTDd/LuVtxoep6gvjN9TJiB4K+Qx0sAtgnfhPpka9Q==}
-    dev: false
-
   /@unocss/extractor-arbitrary-variants@0.63.6:
     resolution: {integrity: sha512-HJX0oAa9uzwKYoU8CoJdP1gxjuqFmOLxyZmITjStAmZNZpIxlz2wz4VrHmqml2dkvx/mifGGGc/GxZpQ36D12Q==}
     dependencies:
@@ -1652,13 +1645,6 @@ packages:
       '@unocss/core': 0.63.6
       ofetch: 1.4.1
     dev: true
-
-  /@unocss/preset-web-fonts@66.1.0-beta.5:
-    resolution: {integrity: sha512-fMNErnBwvOo0iTrXhdpyeHZ+KqnOkYutPFmcg0uXFpODJHFvHU9+SmLZjDYhSBkxQkLZI+0J2RIkH0poqAJQZw==}
-    dependencies:
-      '@unocss/core': 66.1.0-beta.5
-      ofetch: 1.4.1
-    dev: false
 
   /@unocss/preset-wind@0.63.6:
     resolution: {integrity: sha512-W3oZ2TXSqStNE+X++kcspRTF2Szu2ej6NW5Kiyy6WQn/+ZD77AF4VtvzHtzFVZ2QKpEIovGBpU5tywooHbB7hw==}
@@ -2197,6 +2183,7 @@ packages:
 
   /destr@2.0.3:
     resolution: {integrity: sha512-2N3BOUU4gYMpTP24s5rF5iP7BDr7uNTCs4ozw3kf/eKfvWSIu93GEBi5m427YoyJoeOzQ5smuu4nNAPGb8idSQ==}
+    dev: true
 
   /destroy@1.2.0:
     resolution: {integrity: sha512-2sJGJTaXIIaR1w4iJSNoN0hnMY7Gpc/n8D4qSCJw8QqFWXf7cuAgnEHxBpweaVcPevC2l3KpjYCx3NypQQgaJg==}
@@ -3138,6 +3125,7 @@ packages:
 
   /node-fetch-native@1.6.6:
     resolution: {integrity: sha512-8Mc2HhqPdlIfedsuZoc3yioPuzp6b+L5jRCRY1QzuWZh2EGJVQrGppC6V6cF0bLdbW0+O2YpqCA25aF/1lvipQ==}
+    dev: true
 
   /node-releases@2.0.19:
     resolution: {integrity: sha512-xxOWJsBKtzAq7DY0J+DTzuz58K8e7sJbdgwkbMWQe8UYB6ekmsQ45q0M/tJDsGaZmbC+l7n57UV8Hl5tHxO9uw==}
@@ -3164,6 +3152,7 @@ packages:
       destr: 2.0.3
       node-fetch-native: 1.6.6
       ufo: 1.5.4
+    dev: true
 
   /on-finished@2.4.1:
     resolution: {integrity: sha512-oVlzkg3ENAhCk2zdv7IJwd/QUD4z2RxRwpkcGY8psCVcCYZNq4wYnVWALHM+brtuJjePWiYF/ClmuDr8Ch5+kg==}
@@ -3910,6 +3899,7 @@ packages:
 
   /ufo@1.5.4:
     resolution: {integrity: sha512-UsUk3byDzKd04EyoZ7U4DOlxQaD14JUKQl6/P7wiX4FNvUfm3XL246n9W5AmqwW5RSFJ27NAuM0iLscAOYUiGQ==}
+    dev: true
 
   /unconfig@0.5.5:
     resolution: {integrity: sha512-VQZ5PT9HDX+qag0XdgQi8tJepPhXiR/yVOkn707gJDKo31lGjRilPREiQJ9Z6zd/Ugpv6ZvO5VxVIcatldYcNQ==}
