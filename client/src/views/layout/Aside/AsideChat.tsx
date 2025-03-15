@@ -46,7 +46,7 @@ const AsideChat: React.FC = () => {
   const textareaRef = useRef<null>(null)
   const [textareaH, setTextareaH] = useState<Number>(textareaBaseH)
   const [isShift, setIsShift] = useState<Boolean>(false)
-  const contentRef = useRef<null>(null)
+  const contentRef = useRef<HTMLDivElement | null>(null)
   const user = useSelector((state: any) => state.user)
   const socket = useSocket()
   let prevMessageLength = messages.length
@@ -70,22 +70,23 @@ const AsideChat: React.FC = () => {
   useEffect(() => {
     if (contentRef.current) {
       if(messages.length === prevMessageLength) return
-      const contentH = (contentRef.current as HTMLTextAreaElement).scrollHeight
       prevMessageLength = messages.length
-      
-      ;(contentRef.current as HTMLTextAreaElement).scrollTo({
-        top: contentH,
-        behavior: "smooth",
-      })
     }
-    scrollToBottom()
   }, [messages])
 
   const scrollToBottom = () => {
     if (contentRef.current) {
-      contentRef.current.scrollTop = contentRef.current.scrollHeight
+      const contentH = contentRef.current.scrollHeight
+      contentRef.current.scrollTo({
+        top: contentH,
+        behavior: "smooth",
+      })
     }
   }
+
+  useEffect(() => {
+    setTimeout(scrollToBottom, 100)
+  }, [])
 
   const changeMessage = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const lines = e.target.value.split('\n').length
@@ -159,7 +160,7 @@ const AsideChat: React.FC = () => {
         (textareaRef.current as HTMLInputElement).value = ''
         setTextareaH(textareaBaseH)
         // 捲軸置底
-        setTimeout(scrollToBottom, 10)
+        setTimeout(scrollToBottom, 100)
       }
     }
   }
