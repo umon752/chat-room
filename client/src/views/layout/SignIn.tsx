@@ -114,7 +114,7 @@ const SignIn: React.FC = () => {
             <div className="w-100% max-w-350 flex flex-(col items-center justify-center) gap-8 md:(gap-18)">
               <div className="text-(center dark) font-(size-28 black)">{t('signin')}</div>
               <Avatar size="w-100 h-100 md:(w-145 h-145)" />
-              <div className="u-concave rounded-30 py-8 px-12 before:(rounded-30) after:(rounded-30) md:(p-16)">
+              <div className="u-concave rounded-30 py-8 px-12 md:(p-16)">
                 <input placeholder={t('placeholder.name')} className={`u-scrollbar-hidden w-100% line-height-150% text-dark font-size-14 middle md:(font-size-16) dark:text-white`} ref={inputRef} onKeyDown={keyDownEnter}></input>
               </div>
               <Btn text={t('confirm')} clickEvent={clickSignIn} disabled={isUpload} />

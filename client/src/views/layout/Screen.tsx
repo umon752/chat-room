@@ -258,7 +258,7 @@ const Screen: React.FC = () => {
 
   return (
     <div className="w-100% h-100% flex flex-(col) p-10 md:(p-20)">
-      <div className="u-concave w-100% h-100% bg-light rounded-12 before:(rounded-12) after:(rounded-12) dark:bg-dark" ref={screenRef}>
+      <div className="u-concave w-100% h-100% bg-light rounded-12 dark:bg-dark" ref={screenRef}>
         <ScreenCanvas screenW={screenW} screenH={screenH} />
       </div>
     </div>

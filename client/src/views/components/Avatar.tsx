@@ -77,7 +77,7 @@ const Avatar: React.FC<AvatarProps> = ({ size }) => {
   return (
     <>
       <div className={`relative ${size} rounded-full overflow-hidden flex-shrink-0`}>
-        <div className="u-concave u-flex-center rounded-full before:rounded-full after:rounded-full">
+        <div className="u-concave u-flex-center rounded-full">
           <div className="parent w-95% h-95% rounded-full bg-white relative overflow-hidden dark:(bg-gray)">
             <img className="w-100% h-100% object-cover" src={user.avatar} alt="" ref={avatarRef} referrerPolicy="no-referrer" />
             <div className="w-100% h-100% u-absolute-center opacity-0 rounded-full u-transition-ease

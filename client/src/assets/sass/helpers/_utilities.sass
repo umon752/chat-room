@@ -32,94 +32,58 @@
 //----------------------------
 // 凹凸感
 //----------------------------
+$convex-light: #F5F6F5
+$convex-dark: #C1C7D6
+$convex-dark-light: #3d414d
+$convex-dark-dark: #14161d
+
 // 凸感
 .u-convex
-  @apply u-transition-ease
   position: relative
   width: 100%
   height: 100%
+  box-shadow: -2px -2px 3px $convex-light, 2px 2px 4px $convex-dark
   &.u-convex-btn
     &:hover
-      &::before 
-        box-shadow: -1px -1px 2px #F5F6F5
-      &::after 
-        box-shadow: 1px 1px 2px #C1C7D6
-  &::before ,&:after
-    content: ''
-    width: 100%
-    height: 100%
-    position: absolute
-    top: 50%
-    left: 50%
-    transform: translate(-50%, -50%)
-    pointer-events: none
-    @apply u-transition-ease
-  &::before 
-    box-shadow: -2px -2px 3px #F5F6F5
-    z-index: 1
-  &::after 
-    box-shadow: 2px 2px 4px #C1C7D6
-    z-index: 2
+      box-shadow: -1px -1px 2px $convex-light, 1px 1px 2px $convex-dark
 
-// dark
+// 凸感 (dark 模式)
 .dark
   .u-convex
+    box-shadow: -2px -2px 3px $convex-dark-light, 2px 2px 4px $convex-dark-dark
     &.u-convex-btn
       &:hover
-        &::before 
-          box-shadow: -1px -1px 2px #3d414d
-        &::after 
-          box-shadow: 1px 1px 2px #14161d
-    &::before 
-      box-shadow: -2px -2px 3px #3d414d
-    &::after 
-      box-shadow: 2px 2px 4px #14161d
+        box-shadow: -1px -1px 2px $convex-dark-light, 1px 1px 2px $convex-dark-dark
+
+
+$concave-light: #eaeff4
+$concave-dark: #C1C7D6
+$concave-dark-light: #3d414d
+$concave-dark-dark: #14161d
 
 // 凹感
 .u-concave 
   position: relative
   width: 100%
   height: 100%
-  // border: 2px solid #F5F6F5
-  // background-color: #e1e5e9
-  &::before ,&:after
-    content: ''
-    width: 100%
-    height: 100%
-    position: absolute
-    top: 50%
-    left: 50%
-    transform: translate(-50%, -50%)
-    pointer-events: none
-  &::before 
-    // box-shadow: -5px -5px 16px #F5F6F5
-    box-shadow: inset -4px -4px 8px #eaeff4
-    z-index: 2
-  &::after 
-    // box-shadow: 8px 8px 18px #C1C7D6
-    box-shadow: inset 4px 4px 8px #C1C7D6
-    z-index: 1
+  box-shadow: inset -4px -4px 8px $concave-light, inset 4px 4px 8px $concave-dark
 
-// dark
+// 凹感 (dark 模式)
 .dark
   .u-concave 
-    &::before 
-      box-shadow: inset -4px -4px 8px #3d414d
-    &::after 
-      box-shadow: inset 4px 4px 8px #14161d
+    box-shadow: inset -4px -4px 8px $concave-dark-light, inset 4px 4px 8px $concave-dark-dark
 
-
-// 黏合
-.u-gooey 
-  filter: url("#gooey")
+$chat-bg: #eaecef
+$chat-dark-bg: #383c47
 
 .u-chat
   @apply relative max-w-50% text-dark flex flex-(col) rounded-8 bg-lighter font-size-14 py-6 px-8 md:(font-size-16 py-8 px-10)
 
+// 對話訊息 (dark 模式)
 .dark
   .u-chat
     color: white
-    background-color: #383c47
+    background-color: $chat-dark-bg
 
 .u-chat-start 
   @apply rounded-tl-0
@@ -133,11 +97,12 @@
     height: 0
     border-style: solid
     border-width: 0 6px 5px 0
-    border-color: transparent #eaecef transparent transparent
-  
+    border-color: transparent $chat-bg transparent transparent
+
+// 對話訊息 (dark 模式)
 .dark
   .u-chat-start::before 
-    border-color: transparent #383c47 transparent transparent
+    border-color: transparent $chat-dark-bg transparent transparent
 
 .u-chat-end 
   @apply rounded-tr-0
@@ -151,12 +116,9 @@
     height: 0
     border-style: solid
     border-width: 6px 5px 0 0
-    border-color: #eaecef transparent transparent transparent
+    border-color: $chat-bg transparent transparent transparent
 
+// 對話訊息 (dark 模式)
 .dark
   .u-chat-end::before 
-    border-color: #383c47 transparent transparent transparent 
-
-.c-toggle 
-  &:after 
-    display: none
+    border-color: $chat-dark-bg transparent transparent transparent

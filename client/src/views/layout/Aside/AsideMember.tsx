@@ -25,7 +25,7 @@ const AsideMember: React.FC = () => {
     <>
       <div className={`w-100% h-100% absolute top-0 left-0 flex flex-(col) gap-10 bg-light rounded-s-50 z-5 p-10 md:(gap-14 py-30) dark:bg-dark ${openMember ? 'opacity-100' : 'opacity-0 translate-x-100%'}`}>
         <BackBtn clickEvent={closeMember} />
-        <div className="u-concave rounded-12 overflow-hidden px-10 before:(rounded-12) after:(rounded-12) md:(px-24)">
+        <div className="u-concave rounded-12 overflow-hidden px-10 md:(px-24)">
           <div className="u-scrollbar-hidden h-100% overflow-scroll flex flex-(col) gap-14 py-10 md:(gap-10 py-24)">
             {members.map((member: Member) => 
               <div className="w-100% flex flex-(items-center) gap-10" key={member.id}>

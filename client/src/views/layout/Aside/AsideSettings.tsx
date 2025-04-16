@@ -41,9 +41,9 @@ const AsideSettings: React.FC = () => {
               <div className="w-100% text-center text-dark font-size-14 md:(font-size-16) dark:text-white">{user.name}</div>
               <div className="flex flex-(col items-center) gap-8">
                 <button type="button" className="w-48 h-20 overflow-hidden relative md:(w-74 h-36)" onClick={switchMode}>
-                  <div className="u-concave rounded-full bg-white before:rounded-full after:rounded-full dark:bg-dark"></div>
+                  <div className="u-concave rounded-full bg-white dark:bg-dark"></div>
                   <div className="w-13 h-13 absolute top-50% left-0 translate-y--50% mx-3 dark:translate-x-28 md:(w-20 h-20 mx-8 dark:translate-x-34) u-transition-ease">
-                    <div className="u-convex rounded-full bg-light before:rounded-full after:rounded-full dark:bg-white u-transition-ease"></div>
+                    <div className="u-convex rounded-full bg-light dark:bg-white u-transition-ease"></div>
                   </div>
                 </button>
                 <div className="font-(size-12) text-gray md:(font-size-14) dark:text-light">{darkMode ? t('darkMode') : t('lightMode')}</div>

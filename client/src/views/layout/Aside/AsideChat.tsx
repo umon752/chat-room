@@ -185,18 +185,18 @@ const AsideChat: React.FC = () => {
         </div>
         <ul className="flex flex-(items-center) gap-8 md:(gap-10)">
           <li className="w-30 h-30 md:(w-42 h-42)">
-            <button type="button" className="parent u-convex u-convex-btn u-flex-center rounded-full before:(rounded-full) after:(rounded-full)" onClick={openMember}>
+            <button type="button" className="parent u-convex u-convex-btn u-flex-center rounded-full" onClick={openMember}>
               <div className="i-mdi:people u-transition-ease text-gray w-18 h-18 parent-hover:(text-main) dark:text-light md:(w-22 h-22)"></div>
             </button>
           </li>
           <li className="w-30 h-30 md:(w-42 h-42)">
-            <button type="button" className="parent u-convex u-convex-btn u-flex-center rounded-full before:(rounded-full) after:(rounded-full)" onClick={openSettings}>
+            <button type="button" className="parent u-convex u-convex-btn u-flex-center rounded-full" onClick={openSettings}>
               <div className="i-ic:baseline-settings u-transition-ease text-gray w-18 h-18 parent-hover:(text-main) dark:text-light md:(w-22 h-22)"></div>
             </button>
           </li>
         </ul>
       </div>
-      <div className="u-concave rounded-12 overflow-hidden px-10 before:(rounded-12) after:(rounded-12) md:(px-24)">
+      <div className="u-concave rounded-12 overflow-hidden px-10 md:(px-24)">
         <div className="u-scrollbar-hidden h-100% overflow-scroll flex flex-(col) gap-14 py-10 md:(gap-24 py-24)" ref={contentRef}>
         {messages.map((message: Message, msgindex: number) => 
           <div className={`flex gap-10 md:(gap-14) ${message.isUser && 'flex-(row-reverse)'}`} key={message.id ? message.id : msgindex}>
@@ -232,11 +232,11 @@ const AsideChat: React.FC = () => {
         </div>
       </div>
       <div className="flex flex-(items-center justify-between) py-10 px-12 md:(py-20 px-18)">
-        <div className="u-concave rounded-s-30 py-8 px-12 before:(rounded-s-30) after:(rounded-s-30) md:(p-16)">
+        <div className="u-concave rounded-s-30 py-8 px-12 md:(p-16)">
           <textarea placeholder={t('placeholder.msg')} className={`u-scrollbar-hidden w-100% h-${textareaH} line-height-150% text-dark font-size-14 middle dark:text-white md:(font-size-16)`} onChange={changeMessage} onKeyDown={keyDownMessage} onKeyUp={kenUpMessage} ref={textareaRef}></textarea>
         </div>
         <div className="w-50 h-100% flex-shrink-0 md:(w-64)">
-          <button type="button" className="parent u-convex u-convex-btn u-flex-center rounded-e-30 before:(rounded-e-30) after:(rounded-e-30)" onClick={sendMessage}>
+          <button type="button" className="parent u-convex u-convex-btn u-flex-center rounded-e-30" onClick={sendMessage}>
             <div className="i-carbon:send-filled u-transition-ease text-gray w-20 h-20 parent-hover:(text-main) dark:text-light md:(w-26 h-26)"></div>
           </button>
         </div>
