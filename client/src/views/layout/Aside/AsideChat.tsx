@@ -102,11 +102,11 @@ const AsideChat: React.FC = () => {
     }
   };
 
-  const kenUpMessage = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+  const keyUpMessage = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === 'Enter') {
       if (isShift) {
-        changeMessage(e.target.value)
-        console.log('value', e.target.value)
+        const textareaValue = (e.target as HTMLTextAreaElement).value
+        changeMessage(textareaValue)
       } else {
           sendMessage(); // 否則送出訊息
       }
@@ -238,7 +238,7 @@ const AsideChat: React.FC = () => {
       </div>
       <div className="flex flex-(items-center justify-between) py-10 px-12 md:(py-20 px-18)">
         <div className="u-concave rounded-s-30 py-8 px-12 md:(py-12 px-16)">
-          <textarea placeholder={t('placeholder.msg')} className={`u-scrollbar-hidden w-100% h-${textareaH} line-height-150% text-dark font-size-16 middle dark:text-white`} onChange={(e) => changeMessage(e.target.value)} onKeyDown={keyDownMessage} onKeyUp={kenUpMessage} ref={textareaRef}></textarea>
+          <textarea placeholder={t('placeholder.msg')} className={`u-scrollbar-hidden w-100% h-${textareaH} line-height-150% text-dark font-size-16 middle dark:text-white`} onChange={(e) => changeMessage(e.target.value)} onKeyDown={keyDownMessage} onKeyUp={keyUpMessage} ref={textareaRef}></textarea>
         </div>
         <div className="w-50 h-100% flex-shrink-0 md:(w-64)">
           <button type="button" className="parent u-convex u-convex-btn u-flex-center rounded-e-30" onClick={sendMessage}>
