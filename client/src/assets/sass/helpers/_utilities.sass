@@ -1,33 +1,15 @@
+@use './_mixins' as _mix
+
 //----------------------------
 // 捲軸
 //----------------------------
 // 隱藏捲軸
 .u-scrollbar-hidden
-  -ms-overflow-style: none
-  scrollbar-width: 0
-
-  &::-webkit-scrollbar
-    @apply bg-transparent hidden
-    
-  &::-webkit-scrollbar-track
-    @apply bg-transparent
-
-  &::-webkit-scrollbar-thumb
-    @apply bg-transparent hover:bg-transparent
+  +_mix.scrollbar-hidden
 
 // 捲軸樣式
 .u-scrollbar
-  &::-webkit-scrollbar
-    @apply w-6
-
-  &::-webkit-scrollbar-button
-    @apply w-6 h-5
-
-  &::-webkit-scrollbar-track
-    @apply bg-light border-0 border-radius-50
-
-  &::-webkit-scrollbar-thumb
-    @apply bg-black bg-opacity-70 border-0 border-radius-50 hover:bg-black bg-opacity-70
+  +_mix.scrollbar
 
 //----------------------------
 // 凹凸感

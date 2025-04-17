@@ -7,7 +7,7 @@ const app = express()
 
 const PORT = process.env.PORT || 3000
 
-//將 express 放進 http 中開啟 Server 的 3000 port ，正確開啟後會在 console 中印出訊息
+// 將 express 放進 http 中開啟 Server 的 3000 port ，正確開啟後會在 console 中印出訊息
 const server = http.createServer(app)
 
 // members 用來存放所有的會員資料
@@ -35,7 +35,7 @@ app.use(cors({
   credentials: true
 }))
 
-//監聽 Server 連線後的所有事件，並捕捉事件 socket 執行
+// 監聽 Server 連線後的所有事件，並捕捉事件 socket 執行
 io.on('connection', (socket) => {
   console.log('success server connect!')
   socket.on('addMember', (userObj) => {
@@ -112,7 +112,7 @@ io.on('disconnection', (socket) => {
   io.sockets.emit('disconnection')
 })
 
-// 启动服务器
+// 啟動
 server.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`)
 })

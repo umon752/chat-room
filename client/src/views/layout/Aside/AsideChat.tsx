@@ -88,8 +88,8 @@ const AsideChat: React.FC = () => {
     setTimeout(scrollToBottom, 100)
   }, [])
 
-  const changeMessage = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const lines = e.target.value.split('\n').length
+  const changeMessage = (value: string) => {
+    const lines = value.split('\n').length
     const newHeight = Math.min(lines, 5) * textareaBaseH
 
     setTextareaH(newHeight)
@@ -103,8 +103,13 @@ const AsideChat: React.FC = () => {
   };
 
   const kenUpMessage = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (e.key === 'Enter' && !isShift) {
-      sendMessage()
+    if (e.key === 'Enter') {
+      if (isShift) {
+        changeMessage(e.target.value)
+        console.log('value', e.target.value)
+      } else {
+          sendMessage(); // 否則送出訊息
+      }
     }
     if(e.key === 'Shift') {
       setIsShift(false)
@@ -197,7 +202,7 @@ const AsideChat: React.FC = () => {
         </ul>
       </div>
       <div className="u-concave rounded-12 overflow-hidden px-10 md:(px-24)">
-        <div className="u-scrollbar-hidden h-100% overflow-scroll flex flex-(col) gap-14 py-10 md:(gap-24 py-24)" ref={contentRef}>
+        <div className="u-scrollbar-hidden h-100% overflow-y-auto overflow-x-hidden flex flex-(col) gap-14 py-10 md:(gap-24 py-24)" ref={contentRef}>
         {messages.map((message: Message, msgindex: number) => 
           <div className={`flex gap-10 md:(gap-14) ${message.isUser && 'flex-(row-reverse)'}`} key={message.id ? message.id : msgindex}>
             <div className="w-40 h-40 rounded-full bg-white overflow-hidden flex-shrink-0 md:(w-50 h-50) dark:(bg-gray)">
@@ -232,8 +237,8 @@ const AsideChat: React.FC = () => {
         </div>
       </div>
       <div className="flex flex-(items-center justify-between) py-10 px-12 md:(py-20 px-18)">
-        <div className="u-concave rounded-s-30 py-8 px-12 md:(p-16)">
-          <textarea placeholder={t('placeholder.msg')} className={`u-scrollbar-hidden w-100% h-${textareaH} line-height-150% text-dark font-size-14 middle dark:text-white md:(font-size-16)`} onChange={changeMessage} onKeyDown={keyDownMessage} onKeyUp={kenUpMessage} ref={textareaRef}></textarea>
+        <div className="u-concave rounded-s-30 py-8 px-12 md:(py-12 px-16)">
+          <textarea placeholder={t('placeholder.msg')} className={`u-scrollbar-hidden w-100% h-${textareaH} line-height-150% text-dark font-size-16 middle dark:text-white`} onChange={(e) => changeMessage(e.target.value)} onKeyDown={keyDownMessage} onKeyUp={kenUpMessage} ref={textareaRef}></textarea>
         </div>
         <div className="w-50 h-100% flex-shrink-0 md:(w-64)">
           <button type="button" className="parent u-convex u-convex-btn u-flex-center rounded-e-30" onClick={sendMessage}>

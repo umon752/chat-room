@@ -9,6 +9,8 @@
 
 html 
   font-size: 0.25rem
+  @apply overscroll-none 
+
 * 
   @apply font-size-16
 
@@ -49,14 +51,14 @@ img
   // select-none: 禁止反白
 
 a
-  @apply text-dark decoration-none u-transition-ease hover:(text-current decoration-none none outline-0 u-transition-ease) active:(decoration-none none outline-0 u-transition-ease) visited:(decoration-none none outline-0 u-transition-ease) focus:(decoration-none none outline-0 u-transition-ease)
+  @apply text-dark decoration-none u-transition-ease hover:(text-current decoration-none none outline-none u-transition-ease) active:(decoration-none none outline-none u-transition-ease) visited:(decoration-none none outline-none u-transition-ease) focus:(decoration-none none outline-none u-transition-ease)
   // 無障礙使用
     // focus:focus-visible:(outline-main outline-auto outline-width-5 u-transition-ease)
   // &:focus:focus-visible
     // @apply outline-main outline-auto outline-width-5 u-transition-ease
 
 button
-  @apply bg-transparent p-0 outline-0 cursor-pointer border-0 border-transparent u-transition-ease hover:(outline-0 u-transition-ease) active:(outline-0 u-transition-ease) visited:(outline-0 u-transition-ease) focus:(outline-0 u-transition-ease)
+  @apply bg-transparent p-0 outline-none cursor-pointer border-0 border-transparent u-transition-ease hover:(outline-none u-transition-ease) active:(outline-none u-transition-ease) visited:(outline-none u-transition-ease) focus:(outline-none u-transition-ease)
   // 無障礙使用
     // focus:focus-visible:(outline-main outline-auto outline-width-5 u-transition-ease)
   // &:focus:focus-visible
@@ -79,7 +81,7 @@ h1, h2, h3, h4, h5, h6
   // @apply bg-main text-white
 
 input, select, textarea
-  @apply appearance-none rounded-none bg-transparent border-none outline-0 resize-none p-0 hover:(outline-0) active:(outline-0) visited:(outline-0) focus:(outline-0)
+  @apply appearance-none rounded-none bg-transparent border-none outline-none resize-none touch-manipulation p-0 hover:(border-none outline-none) active:(border-none outline-none) visited:(border-none outline-none) focus:(border-none outline-none)
   -moz-appearance: none 
 
 // 無障礙使用

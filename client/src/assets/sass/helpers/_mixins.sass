@@ -1,0 +1,30 @@
+//----------------------------
+// 捲軸
+//----------------------------
+// 隱藏捲軸
+@mixin scrollbar-hidden
+  -ms-overflow-style: none
+  scrollbar-width: 0
+
+  &::-webkit-scrollbar
+    @apply bg-transparent hidden
+    
+  &::-webkit-scrollbar-track
+    @apply bg-transparent
+
+  &::-webkit-scrollbar-thumb
+    @apply bg-transparent hover:bg-transparent
+
+// 捲軸樣式
+@mixin scrollbar
+  &::-webkit-scrollbar
+    @apply w-6
+
+  &::-webkit-scrollbar-button
+    @apply w-6 h-5
+
+  &::-webkit-scrollbar-track
+    @apply bg-light border-0 border-radius-50
+
+  &::-webkit-scrollbar-thumb
+    @apply bg-black bg-opacity-70 border-0 border-radius-50 hover:bg-black bg-opacity-70

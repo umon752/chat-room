@@ -111,11 +111,11 @@ const SignIn: React.FC = () => {
         :
         <div className={`w-100vw h-100vh bg-light dark:bg-dark overflow-hidden fixed top-0 left-0 right-0 bottom-0 u-transition-ease z-9998`}>
           <div className="w-100% h-100% flex-col u-flex-center">
-            <div className="w-100% max-w-350 flex flex-(col items-center justify-center) gap-8 md:(gap-18)">
+            <div className="w-100% max-w-350 flex flex-(col items-center justify-center) gap-12 md:(gap-18)">
               <div className="text-(center dark) font-(size-28 black)">{t('signin')}</div>
               <Avatar size="w-100 h-100 md:(w-145 h-145)" />
-              <div className="u-concave rounded-30 py-8 px-12 md:(p-16)">
-                <input placeholder={t('placeholder.name')} className={`u-scrollbar-hidden w-100% line-height-150% text-dark font-size-14 middle md:(font-size-16) dark:text-white`} ref={inputRef} onKeyDown={keyDownEnter}></input>
+              <div className="u-concave rounded-30 py-8 px-12 md:(py-12 px-16)">
+                <input placeholder={t('placeholder.name')} className={`w-100% line-height-150% text-dark font-size-16 middle dark:text-white`} ref={inputRef} onKeyDown={keyDownEnter}></input>
               </div>
               <Btn text={t('confirm')} clickEvent={clickSignIn} disabled={isUpload} />
               <div className="u-flex-center mt-10 gap-8">
